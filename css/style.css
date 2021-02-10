@@ -595,6 +595,17 @@ a.absolute {
 	font-size: 13px;
 	color: #a1b1bc;
 }
+
+.activeCarousel{
+	display: block!important;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s
+}
+.carouselSlide{
+	display: none;
+	transition: opacity .5s
+}
+
 .dark-bg {
 	background: #22282e;
 }
@@ -976,6 +987,9 @@ video#video_background {
 	font-size: 13px;
 	color: #888885;
 }
+.accordeon .element.active > .element-content{
+	display: block;
+}
 .accordeon .element {
 	margin-bottom: 6px;
 	background: #fff;
@@ -1021,9 +1035,9 @@ video#video_background {
 .accordeon .element.active .title:before {
 	background: url(../images/minus.png) 50% 50% no-repeat #333;
 }
-.accordeon > div:first-of-type .element-content {
+/* .accordeon > div:first-of-type .element-content {
 	display: block;
-}
+} */
 .accordeon .element .title:hover:before {
 	background-color: #333;
 }
