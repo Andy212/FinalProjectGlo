@@ -29,7 +29,7 @@ for (let anchor of anchors) {
 
     const backToTop = () => {
         if(window.pageYOffset > 0) {
-            window.scrollBy(0, -60);
+            window.scrollBy(0, -30);
             setTimeout(backToTop, 0);
         }
     }

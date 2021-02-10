@@ -24,7 +24,7 @@ const form = () => {
                 target.value = target.value.replace(/[^+\d]/g, '');
             }
             if (target.matches('.form-name')) {
-                target.value = target.value.replace(/[^а-яё ]/gi, '');
+                target.value = target.value.replace(/[^А-яёЁ]/giu, '');
             }
     
             
