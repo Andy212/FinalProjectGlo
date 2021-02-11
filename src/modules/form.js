@@ -1,4 +1,9 @@
 const form = () => {
+        const callbackInner = document.querySelector('.modal-callback'),
+            callbackBack = document.querySelector('.modal-overlay');
+            
+
+        
 
         const postData = (body) => fetch('./server.php', {
             method: 'POST',
@@ -44,15 +49,30 @@ const form = () => {
                     success: {
                         message: ' Отправлено!'
                     }
+                    
                 };
                 statusMessage.textContent = statusList[status].message;
                 
             };
     
             statusMessage.style.cssText = 'font-size: 3rem; color: rgb(0, 0, 0); position: relative; left: 30%; ';
-    
+
             form.addEventListener('submit', event => {
                 event.preventDefault();
+
+                const formName = document.querySelector('.form-name'),
+                    formTel = document.querySelector('.tel');
+
+                let formNameValue = formName.value,
+                    formTelValue = formTel.value;
+                
+                if(formNameValue.length < 2){
+                    return;
+                }; 
+
+                if(formTelValue.length < 7){
+                    return;
+                };
 
                 showStatus('load');
     
@@ -67,11 +87,17 @@ const form = () => {
                         if (response.status !== 200) throw new Error(`Status network ${request.status}`);
                         showStatus('success');
                         clearInput(idForm);
+                        setTimeout(() => {
+                            callbackBack.style.display = 'none';
+                            callbackInner.style.display = 'none';
+                        }, 5000);
                     })
                     .catch(error => {
                         showStatus('error');
                         console.error(error);
                     });
+
+                
             });
     
             form.addEventListener('input', validFields);
