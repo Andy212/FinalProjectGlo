@@ -67,10 +67,12 @@ const form = () => {
                     formTelValue = formTel.value;
                 
                 if(formNameValue.length < 2){
+                    alert('Поле имя должно содержать минимум 2 символа');
                     return;
                 }; 
 
                 if(formTelValue.length < 7){
+                    alert('Поле телефон должно содержать минимум 7 символов');
                     return;
                 };
 
